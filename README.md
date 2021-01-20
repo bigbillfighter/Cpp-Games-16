@@ -1,2 +1,2 @@
 # CppGames16
-Implementation of the 16 C plus plus games displayed on YouTube channel.
+实现Youtube上的16个C++写的小游戏。
