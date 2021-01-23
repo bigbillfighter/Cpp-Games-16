@@ -1,5 +1,5 @@
 #include <SFML/Graphics.hpp>
-#include <Box2D/Box2D.h>
+#include <Box2d/Box2d.h>
 using namespace sf;
 
 const float SCALE = 30.f;

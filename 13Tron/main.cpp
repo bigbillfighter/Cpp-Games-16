@@ -52,6 +52,16 @@ int main()
     sprite.setTexture(t.getTexture());
     t.clear();  t.draw(sBackground);
 
+    Font font; font.loadFromFile("files/Sansation_Bold.ttf");
+    Text text("YOU WIN!", font, 35);
+    text.setPosition(W/2-80, 20);
+
+    Shader* shader = new Shader;
+    shader->loadFromFile("files/shader.frag", Shader::Fragment);
+    shader->setParameter("frag_ScreenResolution", Vector2f(W, H));
+    shader->setParameter("frag_LightAttenuation", 100);
+    RenderStates states; states.shader = shader;
+
     bool Game=1;
 
     while (window.isOpen())
@@ -73,20 +83,28 @@ int main()
         if (Keyboard::isKeyPressed(Keyboard::W)) if (p2.dir!=0) p2.dir=3;
         if (Keyboard::isKeyPressed(Keyboard::S)) if (p2.dir!=3) p2.dir=0;
 
-        if (!Game)    continue;
+        if (!Game){
+            window.draw(text);
+            window.display();
+            continue;
+        }
 
         for(int i=0;i<speed;i++)
         {
             p1.tick(); p2.tick();
-            if (field[p1.x][p1.y]==1) Game=0;
-            if (field[p2.x][p2.y]==1) Game=0;
+            if (field[p1.x][p1.y]==1) {Game=0; text.setColor(p2.color);}
+            if (field[p2.x][p2.y]==1) {Game=0; text.setColor(p1.color);}
             field[p1.x][p1.y]=1;
             field[p2.x][p2.y]=1;
 
-            CircleShape c(3);
-            c.setPosition(p1.x,p1.y); c.setFillColor(p1.color);    t.draw(c);
-            c.setPosition(p2.x,p2.y); c.setFillColor(p2.color);    t.draw(c);
             t.display();
+
+            shader->setParameter("frag_LightOrigin", Vector2f(p1.x, p1.y));
+            shader->setParameter("frag_LightColor", p1.getColor());
+            t.draw(sprite, states);
+            shader->setParameter("frag_LightOrigin", Vector2f(p2.x, p2.y));
+            shader->setParameter("frag_LightColor", p2.getColor());
+            t.draw(sprite, states);
         }
 
         ////// draw  ///////
