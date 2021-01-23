@@ -8,6 +8,7 @@ Vector2f offset(28,28);
 
 Sprite f[32]; //figures
 std::string position="";
+int offdelay=50;
 
 int board[8][8] =
         {-1,-2,-3,-4,-5,-3,-2,-1,
@@ -93,8 +94,8 @@ int main()
     std::string str;
     int n=0;
 
-    while (window.isOpen())
-    {
+    while (window.isOpen()){
+        Sleep(10);
         Vector2i pos = Mouse::getPosition(window) - Vector2i(offset);
 
         Event e;
@@ -144,10 +145,11 @@ int main()
             for(int i=0;i<32;i++) if (f[i].getPosition()==oldPos) n=i;
 
             /////animation///////
-            for(int k=0;k<50;k++)
+            for(int k=0;k<offdelay;k++)
             {
+                Sleep(10);
                 Vector2f p = newPos - oldPos;
-                f[n].move(p.x/50, p.y/50);
+                f[n].move(p.x/offdelay, p.y/offdelay);
                 window.draw(sBoard);
                 for(int i=0;i<32;i++) f[i].move(offset);
                 for(int i=0;i<32;i++) window.draw(f[i]); window.draw(f[n]);
