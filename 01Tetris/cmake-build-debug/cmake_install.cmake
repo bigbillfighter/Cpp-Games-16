@@ -1,4 +1,4 @@
-# Install script for directory: C:/My_Projects/CCpp/Clion/01Tetris
+# Install script for directory: C:/My_Projects/Github_projects/CppGames16/01Tetris
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/My_Projects/CCpp/Clion/01Tetris/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/My_Projects/Github_projects/CppGames16/01Tetris/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

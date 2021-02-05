@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/My_Projects/CCpp/Clion/01Tetris/main.cpp" "C:/My_Projects/CCpp/Clion/01Tetris/cmake-build-debug/CMakeFiles/01Tetris.dir/main.cpp.obj"
+  "C:/My_Projects/Github_projects/CppGames16/01Tetris/main.cpp" "C:/My_Projects/Github_projects/CppGames16/01Tetris/cmake-build-debug/CMakeFiles/01Tetris.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
