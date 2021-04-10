@@ -1,4 +1,4 @@
-# CppGames16
+# Cpp-Games-16
 实现Youtube上的16个C++写的小游戏。第一个游戏Tetris的链接为: https://www.youtube.com/watch?v=zH_omFPqMO4&ab_channel=FamTrinli
 
 21st Jan. 2021 
